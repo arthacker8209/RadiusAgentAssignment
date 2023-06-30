@@ -1,5 +1,6 @@
 package com.example.radiusagentassignment.network
 
+import com.example.radiusagentassignment.BuildConfig
 import com.example.radiusagentassignment.network.interceptor.NetworkInterceptor
 import com.example.radiusagentassignment.network.interceptor.NetworkStateChecker
 import com.example.radiusagentassignment.network.service.RadiusApiService
@@ -10,6 +11,7 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
@@ -42,6 +44,7 @@ object NetworkModule {
             .baseUrl(BuildConfig.BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .build()
     }
 

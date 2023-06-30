@@ -1,8 +1,8 @@
-package com.example.radiusagentassignment.network.models
+package com.example.radiusagentassignment.db.models
 
 import io.realm.RealmObject
 
-data class Exclusion(
+open class ExclusionRealm(
     val facility_id: String,
     val options_id: String
 ): RealmObject()

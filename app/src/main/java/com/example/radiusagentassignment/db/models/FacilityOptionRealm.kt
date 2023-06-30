@@ -1,8 +1,8 @@
-package com.example.radiusagentassignment.network.models
+package com.example.radiusagentassignment.db.models
 
 import io.realm.RealmObject
 
-data class Option(
+open class FacilityOptionRealm(
     val icon: String,
     val id: String,
     val name: String
